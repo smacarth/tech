@@ -56,7 +56,7 @@
     local new_y_location = get_y_location() + y_incr
   
     --check if off grid/invalid move
-    if new_x_location > 5 or new_x_location < 0 or new_y_location > 5 or new_y_location < 0 then
+    if new_x_location > 4 or new_x_location < 0 or new_y_location > 4 or new_y_location < 0 then
       invalid_move()
       return
     else -- valid location, move player
