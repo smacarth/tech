@@ -1,19 +1,5 @@
-Class = {}
-
-function Class:new(super)
-
   print("Welcome to Energy Quest! Use left(), right(), down(), and up() to move. Use print_grid() to show the grid, and get_energy() to get your current energy level.")
- 
-  --player start in random location on 5x5 grid
-  local x_location = math.random(5)
-  local y_location = math.random(5)
-  
-  --food starts in random location on grid
-  place_food()
-  
-  --starting energy
-  local energy = 59
-  
+
   --get locations of player and food
   local function get_x_location()
     return x_location
@@ -31,7 +17,7 @@ function Class:new(super)
     return y_food_location
   end
   
-  location function get_energy()
+  local function get_energy()
     return energy
   end
   --set locations of player
@@ -66,7 +52,7 @@ function Class:new(super)
     new_y_location = get_y_location() + y_incr
   
     --check if off grid/invalid move
-    if new_x_location() > 5 || new_x_location() < 0 new_y_location() > 5 || new_y_location < 0 then
+    if new_x_location() > 5 or new_x_location() < 0 or new_y_location() > 5 or new_y_location < 0 then
       invalid_move()
       return
     else -- valid location, move player
@@ -75,7 +61,7 @@ function Class:new(super)
     end
       
     --if player finds food
-    if get_x_location() == get_x_food_location() && get_y_location() == get_y_food_location() then
+    if get_x_location() == get_x_food_location() and get_y_location() == get_y_food_location() then
       energy = energy + 20
       print("You found the food!")
       place_food()
@@ -87,7 +73,7 @@ function Class:new(super)
     end
     
     -- if player wins game
-    if energy == 100 then
+    if energy >= 100 then
       win()
     end
   end
@@ -98,7 +84,7 @@ function Class:new(super)
     local y_food_location = math.random(5)
     
     --redo if food and player in same spot
-    if x_food_location == get_x_location() && y_food_location == get_y_location() then
+    if x_food_location == get_x_location() and y_food_location == get_y_location() then
       place_food()
     end
   end
@@ -106,9 +92,9 @@ function Class:new(super)
   -- show the grid to the user
   function print_grid()
     for y_pos = 0, 5, 1 do
-      for x_pos = 0, 5, 1, do
+      for x_pos = 0, 5, 1 do
         --player is in this location
-         if get_x_location() == x_pos && get_y_location() = y_pos then
+         if get_x_location() == x_pos and get_y_location() == y_pos then
            print("[X]")
          else --player is not in location
            print("[ ]")
@@ -134,4 +120,13 @@ function Class:new(super)
     print("Sorry, you lose.")
     os.exit()
   end 
-end
+  
+   --player start in random location on 5x5 grid
+  local x_location = math.random(5)
+  local y_location = math.random(5)
+  
+  --food starts in random location on grid
+  place_food()
+  
+  --starting energy
+  local energy = 50

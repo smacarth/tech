@@ -1,10 +1,10 @@
 local LuaUnit = require('luaunit')
-require('game.lua')
+require('game')
 
 TestGame = {} --class
 
 	--test "left" move. todo: repeat for right, up, down
-    function TestGame:Game:left()
+    function test_left()
     
     	--get starting positions and energy
         x = get_x_position()
@@ -22,7 +22,7 @@ TestGame = {} --class
     end
 
 	--test offgrid/invalid move
-    function Test:Game:offGrid()
+    function test_offGrid()
       set_x_position(0)
       set_y_position(0)
       left()
@@ -30,7 +30,7 @@ TestGame = {} --class
     end
     
     --test winning game
-    function Test:Game:winGame()
+    function test_winGame()
       set_energy = 99
 
       local function setup_positions()
