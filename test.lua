@@ -5,10 +5,14 @@ TestGame = {} --class
 
 	--test "left" move. todo: repeat for right, up, down
     function TestGame:Game:left()
+    
+    	--get starting positions and energy
         x = get_x_position()
         y = get_y_position()
         energy = get_energy()
         left() -- todo: check if invalid move
+        
+        --after moving, get new positions and energy
         new_x = get_x_position()
         new_y = get_y_position()
         new_energy = get_energy()
@@ -37,10 +41,11 @@ TestGame = {} --class
       end
   
       setup_positions()
+      --move down into food position
       if y_food < 5 then
         y = y_food + 1
         down()
-      else
+      else --repeat this step if moving down not possible
         setup_positions()
       end
       
