@@ -105,8 +105,8 @@ function Class:new(super)
   
   -- show the grid to the user
   function print_grid()
-    for x_pos = 0, 5, 1 do
-      for y_pos = 0, 5, 1, do
+    for y_pos = 0, 5, 1 do
+      for x_pos = 0, 5, 1, do
         --player is in this location
          if get_x_location() == x_pos && get_y_location() = y_pos then
            print("[X]")
@@ -114,6 +114,7 @@ function Class:new(super)
            print("[ ]")
          end
       end
+      print "\n" -- end of row
     end
   end
   
