@@ -1,5 +1,5 @@
 local LuaUnit = require('luaunit')
-require('game')
+--require('game')
 
 TestGame = {} --class
 
