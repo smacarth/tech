@@ -1,17 +1,23 @@
 local LuaUnit = require('luaunit')
+require('game.lua')
 
 TestGame = {} --class
 
-    function TestGame:left()
+	--test "left" move. todo: repeat for right, up, down
+    function TestGame:Game:left()
         x = get_x_position()
         y = get_y_position()
-        left()
+        energy = get_energy()
+        left() -- todo: check if invalid move
         new_x = get_x_position()
         new_y = get_y_position()
+        new_energy = get_energy()
         assert( x, new_x +1 )
         assert( y, new_y )
+        assert(energy, new_energy +1)
     end
 
+	--test offgrid/invalid move
     function Test:Game:offGrid()
       set_x_position(0)
       set_y_position(0)
@@ -19,6 +25,7 @@ TestGame = {} --class
       assert("Invalid Move")
     end
     
+    --test winning game
     function Test:Game:winGame()
       set_energy = 99
 
@@ -40,6 +47,7 @@ TestGame = {} --class
       assert("Awesome, you win!")
     end
 
+	--todo: losing game, finding food
 -- class TestGame
 
 LuaUnit:run()

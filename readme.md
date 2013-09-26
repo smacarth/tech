@@ -1,0 +1,1 @@
+Welcome to EnergyQuest! This is a sample game.
